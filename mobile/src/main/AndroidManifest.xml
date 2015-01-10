@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cardsq.cardsq" >
 
+    <!-- To access Google+ APIs: -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -23,7 +26,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".decklist.DeckListItem"
             android:label="List Item" >
@@ -35,9 +37,8 @@
         <activity
             android:name=".setting.MainSettingActivity"
             android:label="@string/title_activity_main_setting"
-            android:parentActivityName=".navigation.NavigationDrawerActivity">
+            android:parentActivityName=".navigation.NavigationDrawerActivity" >
         </activity>
-
     </application>
 
 </manifest>
