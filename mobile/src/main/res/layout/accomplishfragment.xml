@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="101dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Congratulations!"
+            android:textSize="40dp"
+            android:paddingLeft="3dp"
+            android:id="@+id/textView00"
+            android:layout_marginLeft="30dp"
+            android:textStyle="bold"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="You have learned: "
+            android:textSize="40dp"
+            android:paddingLeft="3dp"
+            android:id="@+id/textView01"
+            android:layout_marginLeft="10dp"
+
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="101dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="101dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="56 "
+            android:textSize="70dp"
+            android:paddingLeft="3dp"
+            android:id="@+id/textView1"
+            android:layout_marginLeft="90dp"
+            android:textStyle="italic"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="101dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Cards "
+            android:textSize="20dp"
+            android:paddingLeft="3dp"
+            android:id="@+id/textView2"
+           android:textColor="@color/wallet_holo_blue_light"
+            android:layout_marginLeft="10dp"
+
+            />
+        </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="101dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="101dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="8 "
+            android:textSize="70dp"
+            android:paddingLeft="3dp"
+            android:id="@+id/textView3"
+            android:layout_marginLeft="90dp"
+            android:textStyle="italic"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="101dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Deck "
+            android:textSize="20dp"
+            android:paddingLeft="3dp"
+            android:id="@+id/textView4"
+            android:textColor="@color/wallet_holo_blue_light"
+            android:layout_marginLeft="10dp"
+
+            />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:text="Monthly learned cards:"
+        android:id="@+id/textView5" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/imageView"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/accomplish"
+        />
+
+</LinearLayout>

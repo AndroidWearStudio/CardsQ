@@ -7,6 +7,7 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
@@ -17,6 +18,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.cardsq.cardsq.Accomplishment.AccomplishmentFragment;
 import com.cardsq.cardsq.R;
 import com.cardsq.cardsq.cardlist.CardListFragment;
 import com.cardsq.cardsq.database.Factory;
@@ -28,7 +30,7 @@ import java.util.ArrayList;
 
 public class NavigationDrawerActivity extends Activity
         implements DeckListFragment.OnFragmentInteractionListener,
-        CardListFragment.OnFragmentInteractionListener{
+        CardListFragment.OnFragmentInteractionListener,AccomplishmentFragment.OnFragmentInteractionListener{
 
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
@@ -130,7 +132,7 @@ public class NavigationDrawerActivity extends Activity
 
         if (savedInstanceState == null) {
             // on first time display view for first nav item
-            displayView(0);
+            displayView(1);
         }
     }
 
@@ -244,7 +246,7 @@ public class NavigationDrawerActivity extends Activity
                 fragment = CardListFragment.newInstance(Factory.getCardList());
                 break;
             case 1:
-                //fragment = AccomplishmentFragment.newInstance();
+                fragment = AccomplishmentFragment.newInstance();
                 break;
             case 2:
                 fragment = DeckListFragment.newInstance(Factory.getDeckList());
@@ -283,5 +285,10 @@ public class NavigationDrawerActivity extends Activity
     public void openMainSetting(){
         Intent intent = new Intent(NavigationDrawerActivity.this, MainSettingActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }
