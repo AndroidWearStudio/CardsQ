@@ -39,6 +39,7 @@
             android:label="@string/title_activity_main_setting"
             android:parentActivityName=".navigation.NavigationDrawerActivity" >
         </activity>
+        <activity android:name=".notification.SendDataToWearActivity" />
     </application>
 
 </manifest>

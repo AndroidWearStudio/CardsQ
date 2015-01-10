@@ -4,6 +4,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.os.SystemClock;
 
 import java.util.Calendar;
 
@@ -39,8 +40,10 @@ public class AlarmTask implements Runnable{
         PendingIntent pendingIntent = PendingIntent.getService(context, 0, intent, 0);
 
 
-        alarmManager.set(AlarmManager.RTC, date.getTimeInMillis(), pendingIntent);
+        //alarmManager.set(AlarmManager.RTC, date.getTimeInMillis(), pendingIntent);
 
-        // alarmManager.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,  SystemClock.elapsedRealtime(),3000, pendingIntent);
+
+
+         alarmManager.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,  SystemClock.elapsedRealtime(), 10000, pendingIntent);
     }
 }

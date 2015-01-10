@@ -67,12 +67,6 @@ public class SendDataToWearActivity extends Activity implements DataApi.DataList
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.setting, menu);
-        return true;
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
@@ -84,12 +78,10 @@ public class SendDataToWearActivity extends Activity implements DataApi.DataList
         return super.onOptionsItemSelected(item);
     }
 
-    public void sendDataToWear(List<Card> cardList) {
-        PutDataMapRequest dataMapRequest = PutDataMapRequest.create("/count");
-        for(Card card: cardList){
-            dataMapRequest.getDataMap().putString(card.getTitle(), card.getExplanation());
-        }
-
+    public void sendDataToWear(View view) {
+        PutDataMapRequest dataMapRequest = PutDataMapRequest.create("/card");
+        dataMapRequest.getDataMap().putString("profileTitle", "Apple" + count++);
+        dataMapRequest.getDataMap().putString("profileExplanation", "Fruit" + count++);
         PutDataRequest request = dataMapRequest.asPutDataRequest();
         PendingResult<DataApi.DataItemResult> pendingresult = Wearable.DataApi.putDataItem(mGoogleApiClient, request);
     }
@@ -98,9 +90,9 @@ public class SendDataToWearActivity extends Activity implements DataApi.DataList
     @Override
     public void onDataChanged(DataEventBuffer dataEvents) {
         for(DataEvent event : dataEvents) {
-            if(event.getType() == DataEvent.TYPE_CHANGED && event.getDataItem().getUri().getPath().equals("/countResponse")) {
+            if(event.getType() == DataEvent.TYPE_CHANGED && event.getDataItem().getUri().getPath().equals("/response")) {
                 DataMapItem dataMapItem = DataMapItem.fromDataItem(event.getDataItem());
-                String data = dataMapItem.getDataMap().getString("profileCountResponse");
+                String data = dataMapItem.getDataMap().getString("profileResponse");
 
                 tv_response.setText(data);
             }

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,8 +20,7 @@ import com.cardsq.cardsq.notification.SendDataToWearActivity;
  * Created by lzhu on 1/10/15.
  */
 public class MainSettingActivity extends Activity implements SetReviewTimeFragment.OnFragmentInteractionListener,
-        MainSettingFragment.OnFragmentInteractionListener,
-        SendToWearFragment.OnFragmentInteractionListener{
+        MainSettingFragment.OnFragmentInteractionListener {
 
     String [] settingTitles;
 
@@ -80,7 +80,9 @@ public class MainSettingActivity extends Activity implements SetReviewTimeFragme
                 fragment = new SetReviewTimeFragment();
                 break;
             case 1:
-                fragment = new SendToWearFragment();
+                //fragment = new SendToWearFragment();
+                Intent intent = new Intent(this, SendDataToWearActivity.class);
+                startActivity(intent);
                 break;
             case 2:
                 //fragment = new PhotosFragment();
