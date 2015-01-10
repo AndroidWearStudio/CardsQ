@@ -39,11 +39,11 @@
 
     <string-array name="main_setting_list">
         <item>Set Daily Review Time</item>
-        <item>Account Setting</item>
+        <item>Send data to wear</item>
         <item>Others</item>
     </string-array>
 
-
     <string name="title_activity_main_setting">Setting</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

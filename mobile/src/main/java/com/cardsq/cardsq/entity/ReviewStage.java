@@ -25,4 +25,12 @@ public class ReviewStage{
         this.level = level;
         this.durationBeforeNextStage = durationBeforeNextStage;
     }
+
+    public int getLevel(){
+        return level;
+    }
+
+    public Date getDurationBeforeNextStage(){
+        return durationBeforeNextStage;
+    }
 }

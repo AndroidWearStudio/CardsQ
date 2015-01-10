@@ -13,7 +13,7 @@ import com.cardsq.cardsq.entity.Card;
 import java.util.List;
 
 /**
- * Customized array adapter, used to show a list of cards in a deck
+ * Customized array adapter, used to show a list of cards in a deck.
  *
  * Created by lzhu on 1/10/15.
  */

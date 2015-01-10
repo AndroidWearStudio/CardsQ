@@ -11,7 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.cardsq.cardsq.R;
-import com.cardsq.cardsq.notification.SetReviewTimeFragment;
+import com.cardsq.cardsq.notification.SendDataToWearActivity;
 
 /**
  * Activity
@@ -19,7 +19,8 @@ import com.cardsq.cardsq.notification.SetReviewTimeFragment;
  * Created by lzhu on 1/10/15.
  */
 public class MainSettingActivity extends Activity implements SetReviewTimeFragment.OnFragmentInteractionListener,
-        MainSettingFragment.OnFragmentInteractionListener{
+        MainSettingFragment.OnFragmentInteractionListener,
+        SendToWearFragment.OnFragmentInteractionListener{
 
     String [] settingTitles;
 
@@ -79,7 +80,7 @@ public class MainSettingActivity extends Activity implements SetReviewTimeFragme
                 fragment = new SetReviewTimeFragment();
                 break;
             case 1:
-                //fragment = new FindPeopleFragment();
+                fragment = new SendToWearFragment();
                 break;
             case 2:
                 //fragment = new PhotosFragment();

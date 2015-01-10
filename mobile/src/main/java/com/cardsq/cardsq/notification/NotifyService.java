@@ -6,14 +6,32 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.os.Binder;
+import android.os.Bundle;
 import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.TextView;
 
 
 import com.cardsq.cardsq.R;
+import com.cardsq.cardsq.database.Factory;
+import com.cardsq.cardsq.entity.Card;
 import com.cardsq.cardsq.navigation.NavigationDrawerActivity;
+import com.cardsq.cardsq.setting.MainSettingActivity;
+import com.cardsq.cardsq.notification.SendDataToWearActivity;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.PendingResult;
+import com.google.android.gms.wearable.DataApi;
+import com.google.android.gms.wearable.DataEvent;
+import com.google.android.gms.wearable.DataEventBuffer;
+import com.google.android.gms.wearable.DataMapItem;
+import com.google.android.gms.wearable.PutDataMapRequest;
+import com.google.android.gms.wearable.PutDataRequest;
+import com.google.android.gms.wearable.Wearable;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,6 +57,8 @@ public class NotifyService extends Service {
         NotifyService getService() {
             return NotifyService.this;
         }
+
+
     }
 
     // Unique id to identify the notification.
@@ -63,6 +83,9 @@ public class NotifyService extends Service {
 
             if(showOnWear) {
                 showPageCards();
+
+               // sendDataToWear(Factory.getCardList());
+
             }else{
                 showNotification();
             }
@@ -162,5 +185,20 @@ public class NotifyService extends Service {
         // Issue the notification
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
         notificationManager.notify(notificationId+1,  notification1);
+    }
+
+
+    GoogleApiClient mGoogleApiClient;
+    int count = 0;
+    TextView tv_response;
+
+    public void sendDataToWear(List<Card> cardList) {
+        PutDataMapRequest dataMapRequest = PutDataMapRequest.create("/count");
+        for(Card card: cardList){
+            dataMapRequest.getDataMap().putString(card.getTitle(), card.getExplanation());
+        }
+
+        PutDataRequest request = dataMapRequest.asPutDataRequest();
+        PendingResult<DataApi.DataItemResult> pendingresult = Wearable.DataApi.putDataItem(mGoogleApiClient, request);
     }
 }

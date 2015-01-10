@@ -5,14 +5,14 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by lzhu on 1/10/15.
+ * Review Setting is used to manage how users review the cards
  */
 public class ReviewSetting {
 
-    private List<ReviewStage> reviewStages = new ArrayList<ReviewStage>();
+    private static List<ReviewStage> reviewStages = new ArrayList<ReviewStage>();
 
-    public static final ReviewStage LEVEL1 = new ReviewStage("Just start", 1, new Date(2000));
-    public static final ReviewStage LEVEL2 = new ReviewStage("Level 2", 2, new Date(4000));
+    private static final ReviewStage LEVEL1 = new ReviewStage("Level 1", 1, new Date(2000));
+    private static final ReviewStage LEVEL2 = new ReviewStage("Level 2", 2, new Date(4000));
     private static final ReviewStage LEVEL3 = new ReviewStage("Level 3", 3, new Date(6000));
 
 
@@ -38,5 +38,9 @@ public class ReviewSetting {
             System.out.println("The input level doesn't exist");
         }
         return this.reviewStages.get(level-1);
+    }
+
+    public static List<ReviewStage> getReviewStages(){
+        return reviewStages;
     }
 }

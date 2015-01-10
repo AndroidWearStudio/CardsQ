@@ -146,4 +146,13 @@ public class Card {
     public void setReviewStage(ReviewStage reviewStage) {
         this.reviewStage = reviewStage;
     }
+
+
+    public ReviewStage setToNextReviewStage(){
+        int currentReviewLevel = reviewStage.getLevel();
+        ReviewStage nextLevel = ReviewSetting.getReviewStages().get(currentReviewLevel); //list index starts from 0
+        setReviewStage(nextLevel);
+        return nextLevel;
+
+    }
 }

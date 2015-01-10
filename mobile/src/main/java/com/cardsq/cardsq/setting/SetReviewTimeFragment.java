@@ -1,7 +1,8 @@
-package com.cardsq.cardsq.notification;
+package com.cardsq.cardsq.setting;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,6 +14,8 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.cardsq.cardsq.R;
+import com.cardsq.cardsq.notification.ScheduleClient;
+import com.cardsq.cardsq.notification.SendDataToWearActivity;
 
 import java.util.Calendar;
 
@@ -82,6 +85,9 @@ public class SetReviewTimeFragment extends Fragment implements View.OnClickListe
         scheduleClient.setAlarmForNotification(c);
         // Notify the user what they just did
         Toast.makeText(getActivity(), "Set Daily Review Time: " + hour + ":" + min + ":" + sec, Toast.LENGTH_SHORT).show();
+
+//        Intent intent = new Intent(MainSettingActivity.this, SendDataToWearActivity.class);
+//        startActivity(intent);
     }
 
 
